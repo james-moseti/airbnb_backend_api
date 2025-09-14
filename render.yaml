@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: airbnb-clone-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn doc_project.wsgi"
+    envVars:
+      - key: SECRET_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DEBUG
+        value: "False"
+    autoDeploy: true
+    plan: free
+    region: oregon
+    staticPublishPath: staticfiles
+    
+databases:
+  - name: airbnb-clone-db
+    plan: free
+    region: oregon
+    postgresMajorVersion: 15
