@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", get_random_secret_key())
 
 # Initialize environment variables
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, True)
 )
 environ.Env.read_env(BASE_DIR / '.env')
 
